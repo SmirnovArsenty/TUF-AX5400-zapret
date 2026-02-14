@@ -40,10 +40,10 @@ fi
 PIDDIR=/var/run
 
 [ -n "$NFQWS" ] || NFQWS="$ZAPRET_BASE/nfq/nfqws"
-NFQWS_OPT_BASE="--user=$WS_USER --dpi-desync-fwmark=$DESYNC_MARK"
+NFQWS_OPT_BASE="--uid 1:1 --dpi-desync-fwmark=$DESYNC_MARK"
 
 [ -n "$TPWS" ] || TPWS="$ZAPRET_BASE/tpws/tpws"
-TPWS_OPT_BASE="--user=$WS_USER"
+TPWS_OPT_BASE="--uid 1:1"
 TPWS_OPT_BASE4="--bind-addr=$TPWS_LOCALHOST4"
 TPWS_OPT_BASE6="--bind-addr=::1"
 TPWS_WAIT="--bind-wait-ifup=30 --bind-wait-ip=30"

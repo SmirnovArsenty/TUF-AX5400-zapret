@@ -1,6 +1,6 @@
 set_conntrack_liberal_mode()
 {
-	[ -n "$SKIP_CONNTRACK_LIBERAL_MODE" ] || sysctl -w net.netfilter.nf_conntrack_tcp_be_liberal=$1
+	[ -n "$SKIP_CONNTRACK_LIBERAL_MODE" ] || "echo $1 > /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal"
 }
 zapret_do_firewall()
 {

@@ -836,13 +836,13 @@ dry_run_tpws_()
 {
 	local TPWS="$ZAPRET_BASE/tpws/tpws"
 	echo verifying tpws options
-	"$TPWS" --dry-run ${WS_USER:+--user=$WS_USER} "$@"
+	"$TPWS" --dry-run --uid 1:1 "$@"
 }
 dry_run_nfqws_()
 {
 	local NFQWS="$ZAPRET_BASE/nfq/nfqws"
 	echo verifying nfqws options
-	"$NFQWS" --dry-run ${WS_USER:+--user=$WS_USER} "$@"
+	"$NFQWS" --dry-run --uid 1:1 "$@"
 }
 dry_run_tpws()
 {

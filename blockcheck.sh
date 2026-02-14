@@ -969,7 +969,7 @@ pktws_start()
 {
 	case "$UNAME" in
 		Linux)
-			"$NFQWS" --uid $TPWS_UID:$TPWS_GID --dpi-desync-fwmark=$DESYNC_MARK --qnum=$QNUM "$@" >/dev/null &
+			"$NFQWS" --uid 1:1 --dpi-desync-fwmark=$DESYNC_MARK --qnum=$QNUM "$@" >/dev/null &
 			;;
 		FreeBSD|OpenBSD)
 			"$DVTWS" --port=$IPFW_DIVERT_PORT "$@" >/dev/null &
@@ -985,7 +985,7 @@ pktws_start()
 tpws_start()
 {
 	local uid
-	[ -n "$HAVE_ROOT" ] && uid="--uid $TPWS_UID:$TPWS_GID"
+	[ -n "$HAVE_ROOT" ] && uid="--uid 1:1"
 	"$TPWS" $uid --socks --bind-addr=127.0.0.1 --port=$SOCKS_PORT "$@" >/dev/null &
 	PID=$!
 	# give some time to initialize

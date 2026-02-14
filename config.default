@@ -13,6 +13,8 @@
 # pre-nat mode disables some bypass techniques for forwarded traffic but allows to see client IP addresses in debug log
 #POSTNAT=0
 
+NFQWS_OPT_DESYNC="--dpi-desync=fake,split2 --dpi-desync-ttl=4 --dpi-desync-ttl6=2 --dpi-desync-split-pos=1 --wssize 1:6 --dpi-desync-fooling=md5sig"
+
 # options for ipsets
 # maximum number of elements in sets. also used for nft sets
 SET_MAXELEM=522288

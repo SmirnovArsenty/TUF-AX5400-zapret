@@ -97,7 +97,7 @@ _set_route_localnet()
 		local enable="$1"
 		shift
 		while [ -n "$1" ]; do
-			sysctl -q -w net.ipv4.conf.$1.route_localnet="$enable"
+			"echo "$enable" > /proc/sys/net/ipv4/conf/$1/route_localnet"
 			shift
 		done
 	}

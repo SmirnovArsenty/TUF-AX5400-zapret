@@ -61,10 +61,10 @@ prepare_user()
 # this complex user selection allows to survive in any locked/readonly/minimalistic environment
 [ -n "$WS_USER" ] || WS_USER=tpws
 if prepare_user; then
- USEROPT="--user=$WS_USER"
+ USEROPT="--uid 1:1"
 else
  WS_USER=1
- USEROPT="--uid $WS_USER:$WS_USER"
+ USEROPT="--uid 1:1"
 fi
 
 PIDDIR=/var/run
